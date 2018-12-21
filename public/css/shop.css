@@ -1,0 +1,112 @@
+.v-scroll {
+    height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.mini-cart .dropdown-menu {
+    font-size: .95em;
+    width: 300px;
+    left: auto;
+    right: 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.22)!important;
+}   
+.text-orange {
+	color: #F44336;
+}
+.discount {
+    position: absolute;
+    z-index: 2;
+    background: #F44336;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 10px -10px;
+}
+.product-name {
+    height: 60px;
+}
+.product-item {
+    border: 1px solid #e9e9e9;
+}
+.product-item:hover a {
+    text-decoration: none;
+}
+.product-item:hover {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
+}
+
+.color-swatch:hover { 
+    text-decoration: none; 
+}
+.color-swatch.active {
+    border-radius: 100%;
+}
+.color-swatch {
+    box-shadow: 2px 2px 5px 1px #9E9E9E !important;
+}
+.color-swatch { 
+    display: inline-block;
+    width: 30px; 
+    height: 30px;
+    margin: 0 9px 9px 0;
+    border-radius: 5px;
+}  
+.carousel-control span {
+    background-color: transparent !important;
+}
+.product-list .carousel-control a {
+  background-color: #212129;
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  padding: 5px 5px 0px;
+  opacity: 1;
+}  
+.product-list .carousel-control a:hover {
+  background-color: #212129ab;  
+}
+.bg-none {
+    background-color: transparent !important;
+}
+.text-orange {
+    color: #F44336;
+}
+.bg-orange {
+    background: #F44336;    
+}
+.discount {
+    position: absolute;
+    z-index: 2;
+    padding: 5px 10px;
+    margin: 10px -10px;
+}
+.product-name {
+    height: 60px;
+}
+.single-product .carousel-inner {
+cursor: zoom-in;    
+}
+.product-item {
+    border: 1px solid #e9e9e9;
+}
+.product-item:hover a {
+    text-decoration: none;
+}
+.product-item:hover {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
+}
+.customer-menu .active {
+    color: #fff !important;
+}
+.rates-o {
+    color: #dcdcdc;
+    position: relative;
+    display: inline-block;
+}   
+.rates-o .text-warning {
+    position: absolute;
+    left: 0;
+    top: 0;
+} 
+.product-image img {    
+    max-height: 260px;
+}

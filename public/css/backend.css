@@ -1,0 +1,229 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f8f9fa;      
+  font-size: 14px;
+}
+/* Scroller */
+.no-scroll::-webkit-scrollbar {
+    width: 0px; 
+    background: transparent;
+}
+.no-scroll::-webkit-scrollbar-thumb {
+    background: #ebeced;
+}
+.bg-none {
+    background: transparent;    
+}
+/* Nav Bar */ 
+.navbar-nav ul li:hover>a {
+    background: #1a1919;
+    color: #00b9eb !important;  
+}
+.navbar-nav>li.active>a {
+  background: #0073aa;
+  color: #ffffff !important;  
+}
+.navbar-nav .show li {
+  background: #1c242b !important;
+}
+.navbar-nav .nav-link {
+  padding-left: 15px !important;
+}
+.show .nav-item.active {
+  font-weight: 600;
+}
+
+/* Table */
+table {
+  font-size: .93em;
+}
+table th {
+  font-weight: 600;
+  padding: .5rem !important;
+}
+
+/* Table actions */
+.has-actions {
+    height: 70px;
+}
+.table-actions {
+    visibility: hidden;
+}    
+.has-actions:hover .table-actions {
+    visibility: visible;
+}    
+
+/* Form actions */
+.form-actions {
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    width: 100%;
+    border-top: 1px dotted #343a40;
+    margin: 0 0 0 -15px;
+    padding: 10px 15px;
+}
+header {
+    margin: -16px -15px 0 -15px;  
+    z-index: 2 !important;
+}
+
+/* Loader */
+.o-loader {
+    background: #0000008c;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 2000;  
+    display: none;
+} 
+.o-loader img {
+  box-shadow: 0px 0px 20px 5px #0000007d; 
+}
+.img-icon {
+  width: 30px;
+  height: 30px;
+}
+.img-icon-md {
+  width: 50px;
+  height: 50px;
+}
+
+.rounded-shadow {
+    box-shadow: 3px 3px 9px 1px #00000070;
+    border-radius: 100%;  
+}
+
+.mb-8 {
+  margin-bottom: 80px;
+}
+.form-action {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: #fff;
+    border-top: 1px dashed;
+}
+.form-container {
+    text-align: right;
+    margin: 0 auto;
+    padding: 8px 25px;
+    width: 100%;
+    position: relative;
+} 
+
+.CodeMirror {
+    height: auto !important;
+    margin-bottom: 50px !important;
+    z-index: 1;
+}
+.code-m {
+    width:100%;
+    display: inline-grid;
+    position: relative!important;    
+}
+.btn {
+    z-index: 1 !important;  
+}
+.dropdown-item {
+  font-size: .85em;
+}
+
+/* Scroll to top */
+#return-to-top {
+    z-index:9;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:rgba(0, 0, 0, 0.30);
+    width:50px;
+    height:50px;
+    display:block;
+    text-decoration:none;
+    -webkit-border-radius:35px;
+    -moz-border-radius:35px;
+    border-radius:35px;
+    display:none;
+    -webkit-transition:all 0.3s linear;
+    -moz-transition:all 0.3s ease;
+    -ms-transition:all 0.3s ease;
+    -o-transition:all 0.3s ease;
+    transition:all 0.3s ease;
+}
+#return-to-top i {
+    color:#fff;
+    margin:0;
+    position:relative;
+    left:16px;
+    top:13px;
+    font-size:19px;
+    -webkit-transition:all 0.3s ease;
+    -moz-transition:all 0.3s ease;
+    -ms-transition:all 0.3s ease;
+    -o-transition:all 0.3s ease;
+    transition:all 0.3s ease;
+}
+#return-to-top:hover {
+    background:rgb(52, 58, 64);
+}
+#return-to-top:hover i {
+    color:#ffffff;
+    top:5px;
+}
+.sortable img:hover { cursor: all-scroll; }   
+.order-notes {
+    max-height: 300px;
+    overflow-y: auto;
+}
+.note-content {
+    background: #eef1f5;
+    position: relative; 
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+.note-content:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 20px;
+    border-width: 15px 15px 0 0;
+    border-style: solid;
+    border-color: #eef1f5 transparent;
+}
+.select2-container--default .select2-selection--single {
+    border: 1px solid #ced4da;  
+}
+.select2-container {
+    max-width: 100% !important;
+}
+.disabled-click { 
+    pointer-events: none; 
+    -webkit-appearance: none;
+}
+.ui-sortable-handle {
+    cursor: all-scroll;
+}
+@media only screen and (max-width: 768px) {
+    .table-actions {
+        visibility: visible;
+    }   
+}
+@media only screen and (min-width: 768px) {
+    .sidebar {
+        padding: 0;
+        width: 215px;
+        min-width: 215px;
+        height: 100vh;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        flex-direction: column;
+        align-items: flex-start;    
+    }
+    main {
+        display: flex;
+    } 
+}

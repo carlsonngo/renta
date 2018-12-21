@@ -1,0 +1,42 @@
+.cc-group {
+	position: relative;
+}
+.card-logo {
+	position: absolute;
+    right: 4px;
+    top: 4px;
+	width: 50px;
+	height: 30px;
+	background-color: #f4f6f7;
+	border-radius: 5px;
+}
+
+[data-type="visa"], [data-type="mastercard"], [data-type="amex"], [data-type="discover"], [data-type="diners"], [data-type="jcb"] {
+	display: inline-block;
+	overflow: hidden;
+	text-align: left;
+    right: 2px;
+	text-indent: -999px;
+	background: url(cards.png) 0 0 no-repeat;
+	background-size: cover;
+}
+
+[data-type="mastercard"] {
+	background-position: -51px 0;
+}
+
+[data-type="amex"] {
+	background-position: -104px 0;
+}
+
+[data-type="discover"] {
+	background-position: -157px 0;
+}
+
+[data-type="diners"] {
+	background-position: -211px 0;
+}
+
+[data-type="jcb"] {
+	background-position: -264px 0;
+}

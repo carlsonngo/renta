@@ -1,0 +1,719 @@
+/* 
+    Theme Name: Default
+*/
+
+ul {
+    list-style: none
+}
+
+.row {
+    padding-top: 1%
+}
+
+button {
+    cursor: pointer
+}
+
+.btn.focus,
+.btn:focus {
+    box-shadow: none
+}
+
+::-webkit-input-placeholder {
+    color: #a0a0a0
+}
+
+@font-face {
+    font-family: Gotham Light;
+    src: url(../../assets/fonts/GothamLight.ttf)
+}
+
+@font-face {
+    font-family: Gotham Book;
+    src: url(../../assets/fonts/GothamBook.ttf)
+}
+
+@font-face {
+    font-family: Gotham Medium;
+    src: url(../../assets/fonts/GothamMedium.ttf)
+}
+
+@font-face {
+    font-family: Gotham Bold;
+    src: url(../../assets/fonts/GothamBold.ttf)
+}
+
+@font-face {
+    font-family: Bell;
+    src: url(../../assets/fonts/BellMT.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: Bell Italic;
+    src: url(../../assets/fonts/BellMTItalic.ttf)
+}
+
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+p {
+    font-family: Gotham Light, sans-serif
+}
+
+nav.home.navbar.navbar-expand-lg.navbar-light {
+    background: transparent!important
+}
+
+nav.home.navbar.navbar-expand-lg.navbar-light a.nav-link {
+    color: #fff;
+    border-bottom: 2px solid transparent;
+    font-family: Gotham Book, sans-serif;
+    letter-spacing: 2px;
+    padding-top: 30px
+}
+
+nav.home.navbar.navbar-expand-lg.navbar-light a.nav-link:hover {
+    border-bottom: 2px solid #fff;
+    color: #fff
+}
+
+home.bg-light {
+    background: transparent!important
+}
+
+.banner {
+    color: #fff;
+    margin-top: -80px
+}
+
+.banner-content .home-btn {
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    color: #fff;
+    display: inline-block;
+    font-family: Gotham Medium, sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-top: 50px;
+    padding: 10px 50px 2px
+}
+
+.banner-content .home-btn:hover {
+    background-color: #fff;
+    color: #b7c2b7;
+    cursor: pointer!important;
+    text-decoration: none
+}
+
+.categories {
+    background-color: #e8f1ec;
+    padding-top: 4%
+}
+
+.categories a {
+    color: #676767;
+    text-decoration: none
+}
+
+.categories h5 {
+    font-family: Bell, serif;
+    padding-top: 20px
+}
+
+.home-cta {
+    padding: 10% 0 3%
+}
+
+.home-cta a {
+    color: #676767;
+    font-family: Gotham Medium, sans-serif;
+    font-size: 14px;
+    text-decoration: none
+}
+
+.how-to-uppa {
+    border-bottom: 1px solid #dedede
+}
+
+.how-to-uppa,
+.how-to-uppa .row {
+    padding-top: 4%
+}
+
+.how-to-uppa h3 span {
+    color: #b7c2b7;
+    font-family: Gotham Bold, sans-serif;
+    font-size: 25px
+}
+
+.how-to-uppa p {
+    font-family: Bell, serif
+}
+
+.blog {
+    padding-top: 4%
+}
+
+.blog .blog-article {
+    background-size: cover !important;
+    height: 100vh;
+    margin-top: 2%
+}
+
+.registration {
+    padding: 4% 0
+}
+
+.registration .wrapper {
+    padding: 4%;
+    background-color: #f4f2f5
+}
+
+.registration .wrapper h3 {
+    font-family: Bell Italic, serif;
+    font-size: 42px;
+    margin-bottom: 5%
+}
+
+.registration .wrapper .steps ol {
+    padding: 0
+}
+
+.registration .wrapper .steps ol li {
+    display: inline-block
+}
+
+.registration .wrapper .steps ol li h2 {
+    color: #b6d2c6
+}
+
+.registration .wrapper .steps ol li h2.active {
+    color: #777
+}
+
+.registration .wrapper .steps-divider {
+    position: relative;
+    background: #e4e4e6;
+    width: 50px;
+    height: 2px;
+    top: -10px;
+    margin: 0 10px
+}
+
+.registration .membership-plans {
+    background-color: #fff;
+    margin: auto;
+    max-width: 750px;
+    padding: 20px
+}
+
+.registration .membership-plans .fas {
+    padding-right: 20px
+}
+
+.registration .membership-plans .fas.fa-check {
+    color: #bed3cc
+}
+
+.registration .membership-plans .fas.fa-times {
+    color: #c0312d
+}
+
+.registration .membership-plans .standard-membership {
+    padding: 5% 0
+}
+
+.registration .membership-plans .standard-membership .title {
+    background-color: #7d7e82;
+    color: #fff;
+    padding: 20px 10px;
+    text-align: center
+}
+
+.registration .membership-plans .standard-membership .title .btn-registration {
+    background-color: #261d1e;
+    width: 100px;
+    padding: 15px 0 10px;
+    display: block;
+    margin: auto;
+    color: #fff;
+    text-decoration: none
+}
+
+.registration .membership-plans .standard-membership .title p {
+    color: #b6d2c6;
+    font-family: Gotham Medium, sans-serif
+}
+
+.registration .membership-plans .standard-membership .info {
+    border: 2px solid #f1eff2;
+    padding: 20px;
+    background-color: #fcfafd
+}
+
+.registration .membership-plans .standard-membership .info ul p {
+    display: inline-block;
+    font-size: 14px
+}
+
+.registration .membership-plans .premium-membership {
+    padding: 5% 0
+}
+
+.registration .membership-plans .premium-membership .title {
+    background-color: #b6d2c6;
+    color: #fff;
+    padding: 20px 10px;
+    text-align: center
+}
+
+.registration .membership-plans .premium-membership .title a {
+    background-color: #261d1e;
+    width: 100px;
+    padding: 15px 0 10px;
+    display: block;
+    margin: auto;
+    color: #fff;
+    text-decoration: none
+}
+
+.registration .membership-plans .premium-membership .title p {
+    color: #777;
+    font-family: Gotham Medium, sans-serif
+}
+
+.registration .membership-plans .premium-membership .info {
+    border: 2px solid #f1eff2;
+    padding: 20px;
+    background-color: #fcfafd
+}
+
+.registration .membership-plans .premium-membership .info ul p {
+    display: inline-block;
+    font-size: 14px
+}
+
+.registration .account-details {
+    background: #fff;
+    padding: 5% 7%
+}
+
+.registration .account-details h3 {
+    color: #a0a0a0;
+    font-size: 28px
+}
+
+.registration .account-details p {
+    color: #a0a0a0;
+    font-size: 12px
+}
+
+.registration .account-details label {
+    font-size: 14px;
+}
+.registration .form-control:focus { box-shadow: none; }
+.registration .account-details input[type=text],
+.registration .account-details select {
+    color: #a0a0a0 !important;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #dedede;
+    border-radius: 0;
+    padding: 10px 0;
+}
+.registration .account-details select {
+    padding: 0;
+    height: 45px !important;
+}
+
+.registration .account-details select {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+.btn-brown {
+    border: 2px solid #261d1e;
+    background-color: #261d1e;
+    font-family: Gotham Light, sans-serif;
+    font-size: 14px;
+    color: #fff
+}
+.btn-brown:hover {
+    background-color: transparent;
+    color: #261d1e;
+}
+
+nav.uppa.navbar.navbar-expand-lg.navbar-light {
+    background-color: #b7c2b7
+}
+
+nav.uppa.navbar.navbar-expand-lg.navbar-light a.nav-link {
+    color: #fff;
+    border-bottom: 2px solid transparent;
+    font-family: Gotham Book, sans-serif;
+    letter-spacing: 2px;
+}
+
+nav.uppa.navbar.navbar-expand-lg.navbar-light a.nav-link:hover {
+    border-bottom: 2px solid #fff;
+    color: #fff
+}
+
+nav.second-nav.navbar.navbar-expand-lg.navbar-light {
+    padding: 2% 0 1%;
+    border-bottom: 2px solid #ccd3d0
+}
+
+nav.second-nav.navbar.navbar-expand-lg.navbar-light a {
+    font-family: Gotham Medium, sans-serif
+}
+
+.filter {
+    background-color: #e8f1ec;
+    padding: 2% 0
+}
+
+.filter .form-control {
+    background: transparent;
+    border: 2px solid #fff
+}
+
+.filter .tags {
+    padding-left: 10px
+}
+
+.filter .tags .badge {
+    color: #555
+}
+
+.filter .tags .badge span:before {
+    content: "x";
+    font-size: 14px;
+    padding: 5px
+}
+
+.products {
+    background-color: #fbfbfb;
+    padding: 4% 0
+}
+.products a { 
+    text-decoration: none; 
+    color: #676767;
+}
+.products .product-image {
+    position: relative
+}
+
+.products .product-image.restricted .mask {
+    background-color: rgba(0, 0, 0, .1);
+    position: absolute;
+    width: 100%;
+    height: 100%
+}
+
+.products .product-image.restricted .mask:after {
+    background-color: #949899;
+    border-radius: 7px;
+    color: #fff;
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    content: "\f023";
+    font-size: 18px;
+    padding: 10px 15px;
+    position: absolute;
+    left: 5%;
+    bottom: 3%
+}
+
+.products .product-info {
+    padding: 10% 0
+}
+
+.products .product-info h5 {
+    font-family: Bell, serif
+}
+
+.products .product-info p {
+    font-family: Bell Italic, serif;
+    margin: 0
+}
+
+.products .product-info h6 {
+    font-family: Gotham Medium, sans-serif;
+    margin-top: 10px
+}
+
+.checkout .row {
+    padding: 3% 0
+}
+
+.checkout .card {
+    border: none;
+    padding-top: 5px
+}
+
+.checkout .card .card-header {
+    background-color: #b6d2c5;
+    border-bottom: none;
+    border-radius: 0;
+    text-align: center
+}
+
+.checkout .card .card-header .btn {
+    background: transparent;
+    color: #fff;
+    font-family: Gotham Medium, sans-serif
+}
+
+.checkout .card .card-body {
+    background: #f3f3f3
+}
+
+.checkout .card .order-card .order-header {
+    background: #b7c2b7;
+    padding: 20px
+}
+
+.checkout .card .order-card .order-header p {
+    color: #fff;
+    font-family: Gotham Medium, sans-serif;
+    margin: 0
+}
+
+.checkout .card .order-card .order-header .date {
+    float: left
+}
+
+.checkout .card .order-card .order-header .deliver {
+    float: right
+}
+
+.checkout .card .order-card .order-body {
+    background: #fff;
+    padding: 5px 20px 20px;
+    margin-bottom: 20px
+}
+
+.checkout .card .order-card .order-body a {
+    color: #333
+}
+
+.checkout .card .order-card .order-body p {
+    margin: 0
+}
+
+body {
+    color: #676767
+}
+
+footer {
+    background-color: #b7c2b7;
+    color: #fff;
+    padding: 75px 0
+}
+
+footer h6 {
+    font-family: Gotham Medium, sans-serif;
+    letter-spacing: 2px
+}
+
+footer a,
+footer a:hover {
+    color: #fff
+}
+
+footer ul {
+    padding: 0
+}
+
+footer ul.social-links li {
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 20px
+}
+
+footer ul li {
+    font-size: 14px;
+    padding: 5px 0
+}
+
+/*========== Cart ==========*/
+
+.promo-notification {
+  background: #231f20;
+  color: #fff;
+  padding: 20px 0 10px;
+}
+.cart .page-title {
+  text-align: center;
+  margin-top: 3%;
+}
+.cart .card-body {
+  padding: 2px;
+}
+.cart .cart-wrapper {
+  background: #f3f3f3;
+  padding: 10px 20px;
+  margin: 5% 0;
+}
+.cart .order-card .order-header {
+  background: #b7c2b7;
+  padding: 20px;
+}
+.cart .order-card .order-header p {
+  color: #fff;
+  font-family: 'Gotham Medium', sans-serif;
+  font-size: 14px;
+  margin: 0;
+}
+.cart .order-card .order-body {
+  background: #fff;
+  padding: 5px 20px 20px;
+  margin-bottom: 20px;
+}
+.cart .order-card .order-body a {
+  color: #333;
+}
+.cart .order-card .order-body p {
+  margin: 0;
+}
+.cart .cart-summary h5 {
+  color: #fff;
+  text-align: center;
+  margin: 17px 0 0;
+}
+.cart .cart-summary h6 {
+  font-family: 'Gotham Bold', sans-serif;
+  padding: 10px 0 0;
+}
+.cart .cart-summary .order-header {
+  background: #7c7f81;
+}
+.cart .cart-summary .order-body {
+  padding-top: 30px;
+}
+.cart .cart-summary .btn-coupon {
+  background: #b6d2c5;
+  display: block;
+  width: 100%;
+  color: #fff;
+  padding: 5px;
+  text-transform: uppercase;
+  border: none;
+  margin: 10px 0;
+}
+.cart .cart-summary input {
+  padding: 5px 10px;
+}
+.cart .cart-summary .btn-checkout, .cart .cart-summary .btn-shop {
+  display: block;
+}
+.cart .cart-summary .btn-checkout {
+  background: #7c7f81;
+  padding: 15px 20px 5px;
+  color: #fff !important;
+  text-align: center;
+  margin: 5%;
+}
+.cart .cart-summary .btn-checkout:hover {
+  text-decoration: none;
+}
+.cart .cart-summary .btn-shop {
+  text-align: right;
+  padding-top: 5%;
+  font-family: 'Gotham Medium', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #b7c2b7 !important;
+}
+
+/*========== Single Product Page ==========*/
+
+.single-product {
+  background-color: #fbfbfb;
+  padding: 4% 0;
+}
+.single-product h2 {
+  font-family: 'Bell', serif;
+}
+.single-product p.item {
+  font-family: 'Bell Italic', serif;
+  font-size: 18px;
+}
+.single-product p.item-description {
+  font-style: italic;
+  line-height: 2em;
+}
+.single-product .products {
+  padding-top: 0 !important;
+}
+.single-product .size-dropdown {
+  margin: 10px 0 20px;
+}
+.description-wrapper p {
+  float: left;
+  margin-bottom: 0;
+}
+.description-wrapper .collapse-arrow {
+  float: right;
+  border: none;
+  background: transparent;
+}
+.description-wrapper .collapse-arrow:focus {
+  outline: none;
+}
+.description-wrapper .collapse-description {
+  color: #676767;
+  font-family: 'Bell', serif;
+  margin-bottom: 5%;
+}
+.dropdown-divider {
+  margin: 0 0 1.5em;
+}
+.dropdown-divider.section {
+  margin: 5% 0;
+}
+.btn-calendar, .btn-add-to-cart {
+  display: block;
+}
+.btn-calendar {
+  background: #b6d2c5;
+  color: #fff;
+  font-size: 1.5em;
+  text-align: center;
+  padding: 15px 0 5px;
+  margin-bottom: 20px;
+}
+.btn-calendar:hover {
+  text-decoration: none;
+  color: #fff;
+  background: #a8c3b7;
+}
+.btn-add-to-cart {
+  background: #7c7f81;
+  color: #fff;
+  font-size: 1.5em;
+  font-family: 'Bell Italic', serif;
+  text-align: center;
+  padding: 10px 0 10px;
+  margin-bottom: 20px;
+}
+.btn-add-to-cart:hover {
+  text-decoration: none;
+  color: #fff;
+  background: #717375;
+}
+.ratings-reviews .stars {
+  font-size: 12px;
+  color: #b6d2c5;
+}
+.ratings-reviews .star-review-text {
+  font-family: 'Bell Italic', serif;
+}
+
