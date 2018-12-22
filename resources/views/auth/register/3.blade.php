@@ -55,7 +55,7 @@
                 <input type="text" name="profession" class="form-control" placeholder="Profession" value="{{ Input::old('profession', @$profession) }}">
             </div>                        
             <div class="form-group">
-                <input type="text" name="how_did_you_hear_from_us" class="form-control" placeholder="How did you here from us? *" value="{{ Input::old('how_did_you_hear_from_us', @$how_did_you_hear_from_us) }}">
+                <input type="text" name="how_did_you_hear_about_us" class="form-control" placeholder="How did you hear about us? *" value="{{ Input::old('how_did_you_hear_about_us', @$how_did_you_hear_about_us) }}">
                 {!! $errors->first('how_did_you_hear_from_us','<p class="text-danger my-2">:message</p>') !!}
             </div>
         </div>

@@ -52,6 +52,7 @@
 	                    </div>
                     </div>
 
+
                     <div class="row">
 	                    <div class="col-sm form-group">
 	                        <label>{{ trans('backend.username') }}</label>
@@ -65,6 +66,8 @@
 	                        {!! $errors->first('password','<p class="text-danger my-2">:message</p>') !!}  
 	                    </div>
 	                </div>
+
+
                 </div>
             </div>
 
@@ -114,6 +117,16 @@
                         {{ Form::select('status', user_status(), Input::old('status', $info->status), ['class' => 'form-control'] ) }}
                         {!! $errors->first('status','<p class="text-danger my-2">:message</p>') !!}     
                     </div>
+
+                    @if( !@$info->confirmed && @$info->membership == 'premium' && @$info->group == 'customer' )
+                    <div class="custom-control custom-checkbox align-items-center d-flex">
+                        <input type="hidden" name="confirmed" value="0">
+                        {{ Form::checkbox('confirmed', 1, @$info->confirmed, ['class' => 'custom-control-input', 'id' => 'confirmed']) }}
+                        <label class="custom-control-label" for="confirmed">Confirm</label> 
+                    </div>
+                    @endif
+
+
                 </div>
             </div>
 

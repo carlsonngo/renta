@@ -27,7 +27,10 @@
                     <a class="nav-link {{ actived('confirm-registration', Input::get('email') ) }}" href="{{ route('backend.settings.emails', ['email' => 'confirm-registration']) }}">Confirm Registration</a>
                     
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link {{ actived('new-user', Input::get('email') ) }}" href="{{ route('backend.settings.emails', ['email' => 'new-user']) }}">New User</a>
+                    
+                </li>
             </ul>
             <hr>
 

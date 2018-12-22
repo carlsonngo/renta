@@ -463,6 +463,17 @@ function email_shortcodes($val ='') {
 			'[date_created]',
 			'[total]',
 		),
+		'new-user' => array(
+			'[site_title]',
+			'[firstname]',
+			'[lastname]',
+			'[group]',
+			'[email_address]',
+			'[username]',
+			'[password]',
+			'[date_register]',
+			'[login_url]',
+		),
 	);
 
 	return ($val) ? $data[$val] : $data;
@@ -504,8 +515,8 @@ function order_status($val ='') {
 function user_status($val ='') {
  
   $data = array(
-    "pending"    => "Pending",
-    "confirmed"  => "Confirmed",
+    "inactived"    => "inactived",
+    "actived"    => "actived",
   );
 
   return ($val) ? $data[$val] : $data;

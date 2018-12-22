@@ -1206,7 +1206,9 @@ function has_access($module ='', $roles = array()) {
 
 function form_field($key ='', $value = '') { 
 
-  if( in_array($key, ['last_login']) ) {
+  if( in_array($key, ['confirmed', 'membership']) ) {
+    $data = $value;
+  } elseif( in_array($key, ['last_login']) ) {
     $data = time_ago($value);
   } elseif( str_contains($key, ['country']) ) {
     $data = Form::select($key, countries(), $value, ['class' => 'form-control select2']);

@@ -81,15 +81,7 @@
 
                 </div>
             </div>
-            <div class="card mb-3">
-                <div class="card-header bg-dark text-white text-uppercase">{{ trans('backend.status') }}</div>
-                <div class="card-body">
-                    <div class="form-group">
-                        {{ Form::select('status', user_status(), Input::old('status'), ['class' => 'form-control'] ) }}
-                        {!! $errors->first('status','<p class="text-danger my-2">:message</p>') !!}     
-                    </div>
-                </div>
-            </div>
+
 
             <div class="card">
                 <div class="card-header bg-dark text-white text-uppercase">{{ trans('backend.profile_picture') }}</div>

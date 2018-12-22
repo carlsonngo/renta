@@ -167,8 +167,8 @@ class CustomerController extends Controller
             ];      
 
             if( $new_password = Input::get('new_password') ) {
-                $rules['new_password']              = 'required|min:4|max:64|confirmed';
-                $rules['new_password_confirmation'] = 'required|min:4';
+                $rules['new_password']              = 'required|min:6|max:64|confirmed';
+                $rules['new_password_confirmation'] = 'required|min:6';
             }
 
             $validator = Validator::make(Input::all(), $rules);

@@ -44,6 +44,7 @@ class AuthController extends Controller
 
     public function login()
     {
+        $checkouts = array();
 
         if( Auth::check() ) {
             $auth = Auth::user();
@@ -66,20 +67,31 @@ class AuthController extends Controller
                 
                 $credentials = [
                     $field     => Input::get('email'),
-                    'password' => Input::get('password'),       
+                    'password' => Input::get('password'), 
+                    'status'   => 'actived',    
                 ];
 
                 if(Auth::attempt($credentials, $remember)) {               
                     $auth = Auth::user();
                     if( $auth ) {
                         foreach ($auth->usermetas as $usermeta) {
+                            $auth[$usermeta->meta_key] = $usermeta->meta_value;
                             $checkouts[$usermeta->meta_key] = $usermeta->meta_value;
                         }
                     }   
 
-                    Session::put('user_id', $auth->id);
-                    $this->usermeta->update_meta($auth->id, 'last_login', date('Y-m-d H:i:s'));                
-                    
+                    Session::put('user_id', $auth->id);             
+
+                    $inputs['last_login'] = date('Y-m-d H:i:s');
+
+                    if( ! @$auth->confirmed && @$auth->membership == 'standard' ) {
+                        $inputs['confirmed']  = 1;
+                    }
+
+                    foreach ($inputs as $meta_key => $meta_val) {
+                        $this->usermeta->update_meta($auth->id, $meta_key, array_to_json($meta_val));                                         
+                    }
+
                     $route = 'backend.general.dashboard';
                     
                     if( $auth->group == 'customer' ) {
@@ -228,17 +240,20 @@ class AuthController extends Controller
 
                 $government_id  = $inputs['government_id'];
                 $bank_statement = $inputs['bank_statement'];
+                
+                $inputs['confirmed'] = 0;
 
                 unset($inputs['government_id']);
                 unset($inputs['bank_statement']);
+                
 
                 $user = $this->user;
 
                 $user->firstname = $inputs['firstname'];
                 $user->lastname  = $inputs['lastname'];
-                $user->username  = '';
+                $user->username  = $inputs['email'];
                 $user->email     = $inputs['email'];
-                $user->status    = 'pending';
+                $user->status    = 'inactived';
                 $user->group     = 'customer';
                 $user->site_id   = $this->site_id;
                 $user->verify_token = $token = str_random(64);
@@ -333,8 +348,9 @@ class AuthController extends Controller
 
             if($validator->passes()) {
 
-                $u->password = Hash::make(Input::get('password'));
+                $u->password     = Hash::make(Input::get('password'));
                 $u->verify_token = NULL;
+                $u->status       = 'actived';
 
                 if( $u->save() ) {              
                     $user_id = $u->id;
@@ -342,7 +358,12 @@ class AuthController extends Controller
                     Auth::loginUsingId($u->id);
                     Session::put('user_id', $user_id);
 
-                    $this->usermeta->update_meta($user_id, 'last_login', date('Y-m-d H:i:s'));     
+                    $inputs['confirmed']  = 1;
+                    $inputs['last_login'] = date('Y-m-d H:i:s');
+                    
+                    foreach ($inputs as $meta_key => $meta_val) {
+                        $this->usermeta->update_meta($user->id, $meta_key, array_to_json($meta_val));
+                    }
 
                     return Redirect::route('shop.customer.index')
                                    ->with('success','You have successfully confirmed you account.');

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator, Redirect, Input, Auth, Hash, Session, URL, Mail, Config;
+use Validator, Redirect, Input, Auth, Hash, Session, URL, Mail, Config, DB;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -144,8 +144,8 @@ class UserController extends Controller
             });
 
             if( $new_password = Input::get('new_password') ) {
-                $rules['new_password']              = 'required|min:4|max:64|confirmed';
-                $rules['new_password_confirmation'] = 'required|min:4';
+                $rules['new_password']              = 'required|min:6|max:64|confirmed';
+                $rules['new_password_confirmation'] = 'required|min:6';
             }
 
             $validator = Validator::make(Input::all(), $rules);
@@ -197,7 +197,7 @@ class UserController extends Controller
                 'username'   => 'required|max:64|unique_post:username,'.$this->site_id,
                 'firstname'  => 'required|min:1|max:32',
                 'lastname'   => 'required|min:1|max:32',
-                'password'   => 'required|min:4|max:32',
+                'password'   => 'required|min:6|max:32',
                 'group'      => 'required',
             ];      
 
@@ -217,22 +217,62 @@ class UserController extends Controller
                                ->withInput(); 
             }
 
+            $inputs =  Input::except(['_token', 'firstname', 'lastname', 'email', 'username', 'password', 'group', 'lang']);
+
             $user = $this->user;
 
             $user->fill( Input::all() );   
             $user->site_id  = $this->site_id;
             $user->password = Hash::make( Input::get('password') );  
-            $user->usermeta = json_encode( Input::except(['_token', 'password', 'status', 'group', 'lang']) );   
-
+            $user->usermeta = json_encode( Input::all() );   
+            $user->status   = 'actived';  
+         
             if( $user->save() ) {
 
                 $id = $user->id;
 
                 if( Input::hasFile('file') ) {
-                    $pic = upload_image(Input::file('file'), 'uploads/'.$this->site_id.'/users/'.$id, '', 'compress');
-                    $this->usermeta->update_meta($id, 'profile_picture', $pic);       
+                    $inputs['profile_picture'] = upload_image(Input::file('file'), 'uploads/'.$this->site_id.'/users/'.$id, '', 'compress');    
                 }          
 
+				if( Input::get('group') == 'customer' ) {
+					$inputs['membership']  = 'standard';
+				}
+
+               foreach ($inputs as $meta_key => $meta_val) {
+                    $this->usermeta->update_meta($id, $meta_key, array_to_json($meta_val));                                         
+                }
+
+
+                // BEGIN EMAIL CONFIRMATION 
+                $data['email'] = $this->post->where('post_type', 'email')
+                                            ->where('post_name', 'new-user')
+                                            ->first();
+
+                $patterns = [
+                    '/\[firstname\]/'         => ucwords(Input::get('firstname')),
+                    '/\[lastname\]/'          => ucwords(Input::get('lastname')),
+                    '/\[username\]/'          => Input::get('username'),
+                    '/\[password\]/'          => Input::get('password'),
+                    '/\[site_title\]/'        => $this->setting->get_setting('site_title'),
+                    '/\[group\]/' 			  => user_group(Input::get('group')),
+                    '/\[email_address\]/'     => Input::get('email'),
+                    '/\[date_register\]/'     => date_formatted(date('Y-m-d')),
+                    '/\[login_url\]/'         => route('auth.login'),
+                ];
+
+                $data['content']     = preg_replace(array_keys($patterns), $patterns, $data['email']->post_content);
+                $data['site_title']  = $this->setting->get_setting('site_title');
+                $data['admin_email'] = $this->setting->get_setting('admin_email');
+                $data['subject']     = preg_replace(array_keys($patterns), $patterns, $data['email']->post_title);
+                $data['user_email']  = Input::get('email');
+
+                Mail::send('emails.default', $data, function($message) use ($data) {
+                    $message->from($data['admin_email'], $data['site_title'])
+                            ->to($data['user_email'])
+                            ->subject( $data['subject'] );
+                });
+                // END EMAIL CONFIRMATION
 
                 return Redirect::route($this->view.'.edit', [$user->id, query_vars()])
                                ->with('success', trans('messages.added', ['variable' => strtolower($this->single)]));
@@ -277,7 +317,7 @@ class UserController extends Controller
             });
 
             if( $password = Input::get('password') ) {
-                $rules['password'] = 'required|min:4|max:32';
+                $rules['password'] = 'required|min:6|max:32';
             }
 
             $validator = Validator::make(Input::all(), $rules);
@@ -292,7 +332,7 @@ class UserController extends Controller
 
             $user->fill( Input::all() );   
 
-            if( $info->group == 'customer' && !@$info->account_status && Input::get('status') == 'confirmed' ) {               
+            if( $info->group == 'customer' && @$info->membership == 'premium' && Input::get('confirmed') == 1 ) {            
                 $password  = strtoupper(str_random(5));
             }
             
@@ -313,7 +353,7 @@ class UserController extends Controller
 
             if( $user->save() ) {
 
-                if( $info->group == 'customer' && !@$info->account_status && Input::get('status') == 'confirmed' ) {
+                if( $info->group == 'customer' && @$info->membership == 'premium' && Input::get('confirmed') == 1 ) {
 
                     // BEGIN EMAIL CONFIRMATION 
                     $data['email'] = $this->post->where('post_type', 'email')
@@ -325,7 +365,7 @@ class UserController extends Controller
                         '/\[lastname\]/'          => ucwords($user->lastname),
                         '/\[password\]/'          => $password,
                         '/\[site_title\]/'        => $this->setting->get_setting('site_title'),
-                        '/\[membership_type\]/'   => $inputs['membership'],
+                        '/\[membership_type\]/'   => $info->membership,
                         '/\[email_address\]/'     => $user->email,
                         '/\[date_register\]/'     => date_formatted(date('Y-m-d')),
                         '/\[login_url\]/'         => route('auth.login'),
@@ -344,7 +384,8 @@ class UserController extends Controller
                     });
                     // END EMAIL CONFIRMATION
 
-                    $inputs['account_status'] = 'confirmed';
+	                $this->user->find($id)->update(['status' => 'actived']);
+
                 }
 
                foreach ($inputs as $meta_key => $meta_val) {
